@@ -14,7 +14,7 @@
 #' \dontrun{style_tableschema('schemas/schema.yaml')}
 #' @export
 style_tableschema <- function(input, output) {
-  x <- yaml::yaml.load_file(input)
+  x <- yaml::yaml.load_file(input, handlers = list(seq = function(x) x))
 
   tableschema_sort_order <- c("fields",
                               "missingValues",
