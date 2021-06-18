@@ -1,7 +1,7 @@
 Package: dtamg
 Type: Package
 Title: Pacote Interno para gestão da Diretoria de Transparência Ativa/CGE
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: c(person(given = "Francisco", 
                     family = "Alves", 
                     email = "francisco.junior@cge.mg.gov.br",
