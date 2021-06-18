@@ -7,13 +7,14 @@
 #' @details
 #' The original file is overwritten without user confirmation.
 #'
-#' @param path yaml file with a table schema.
+#' @param input yaml file with a table schema.
+#' @param output output file to store reordered table schema
 #'
 #' @examples
 #' \dontrun{style_tableschema('schemas/schema.yaml')}
 #' @export
-style_tableschema <- function(path) {
-  x <- yaml::yaml.load_file(path)
+style_tableschema <- function(input, output) {
+  x <- yaml::yaml.load_file(input)
 
   tableschema_sort_order <- c("fields",
                               "missingValues",
@@ -38,7 +39,7 @@ style_tableschema <- function(path) {
   result[["fields"]] <- lapply(result[["fields"]], list_reorder, field_sort_order)
 
   yaml::write_yaml(result,
-                   path,
+                   output,
                    indent.mapping.sequence = TRUE,
                    handlers = list(logical = as_bool))
 
