@@ -4,10 +4,12 @@
 \alias{style_tableschema}
 \title{Style a yaml table schema}
 \usage{
-style_tableschema(path)
+style_tableschema(input, output)
 }
 \arguments{
-\item{path}{yaml file with a table schema.}
+\item{input}{yaml file with a table schema.}
+
+\item{output}{output file to store reordered table schema}
 }
 \description{
 Reorder the properties of a \href{https://specs.frictionlessdata.io/table-schema/}{table schema}

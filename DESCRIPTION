@@ -21,5 +21,6 @@ Roxygen: list(markdown = TRUE)
 Imports:
     yaml
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    fs
 Config/testthat/edition: 3

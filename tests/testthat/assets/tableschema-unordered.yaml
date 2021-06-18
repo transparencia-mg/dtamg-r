@@ -1,0 +1,5 @@
+missingValues:
+  - ''
+fields:
+  - name: colA
+  - name: colB
