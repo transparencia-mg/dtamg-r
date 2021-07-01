@@ -25,6 +25,8 @@ style_tableschema <- function(input, output) {
 
   field_sort_order <- c("name",
                         "title",
+                        "description",
+                        "notes",
                         "type",
                         "format",
                         "bareNumber",
@@ -33,7 +35,6 @@ style_tableschema <- function(input, output) {
                         "trueValues",
                         "falseValues",
                         "missingValues",
-                        "description",
                         "constraints")
 
   result[["fields"]] <- lapply(result[["fields"]], list_reorder, field_sort_order)
