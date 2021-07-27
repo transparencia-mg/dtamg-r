@@ -1,3 +1,4 @@
+#' @import data.table
 # global reference to frictionless (will be initialized in .onLoad)
 # for details see
 # https://rstudio.github.io/reticulate/articles/package.html#delay-loading-python-modules

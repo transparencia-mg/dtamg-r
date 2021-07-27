@@ -1,0 +1,122 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "fact",
+      "path": "fact.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id_a",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "id_b",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "id_c",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "format": "default"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "id_a",
+            "reference": {
+              "resource": "dim-a",
+              "fields": "id_a"
+            }
+          },
+          {
+            "fields": "id_b",
+            "reference": {
+              "resource": "dim-b",
+              "fields": "id_b"
+            }
+          },
+          {
+            "fields": "id_c",
+            "reference": {
+              "resource": "dim-c",
+              "fields": "id_c"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "dim-a",
+      "path": "dim-a.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id_a",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "lowercase",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "uppercase",
+            "type": "string",
+            "format": "default"
+          }
+        ],
+        "primaryKey": "id_a"
+      }
+    },
+    {
+      "name": "dim-b",
+      "path": "dim-b.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id_b",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "lowercase",
+            "type": "string",
+            "format": "default"
+          }
+        ],
+        "primaryKey": "id_b"
+      }
+    },
+    {
+      "name": "dim-c",
+      "path": "dim-c.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id_c",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "lowercase",
+            "type": "string",
+            "format": "default"
+          }
+        ],
+        "primaryKey": "id_c"
+      }
+    }
+  ]
+}
