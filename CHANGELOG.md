@@ -2,6 +2,8 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
+### [Em desenvolvimento]
+
 ### [0.2.0] - 2021-27-07
 #### Added
 - Função `extract_datapackage` para criação de um novo 
