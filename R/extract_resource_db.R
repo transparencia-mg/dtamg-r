@@ -36,13 +36,17 @@ parse_sql <- function(datapackage_path, resource_name) {
                             source = source,
                             particao = particao)
 
-
-
-    sql_template_path <- switch (resource_name,
-    "dm_favorecido" = "sql/dm_favorecido.sql",
-    "dm_empenho_desp_compras_empenho" = "sql/dm_empenho_desp_compras_empenho.sql",
-    "dm_empenho_desp_diarias_scdp_liqpag" = "sql/dm_empenho_desp_diarias_scdp_liqpag.sql",
-    "sql/default.sql")
+    if(grepl("dm_favorecido", resource_name)) {
+      sql_template_path <- "sql/dm_favorecido.sql"
+    } else if(grepl("dm_empenho_desp_compras_empenho", resource_name)) {
+      sql_template_path <- "sql/dm_empenho_desp_compras_empenho.sql"
+    } else if(grepl("dm_empenho_desp_diarias_scdp_liqpag", resource_name)) {
+      sql_template_path <- "sql/dm_empenho_desp_diarias_scdp_liqpag.sql"
+    } else if(grepl("dm_empenho_desp_\\d{4}", resource_name)) {
+      sql_template_path <- "sql/dm_empenho_desp.sql"
+    } else {
+      sql_template_path <- "sql/default.sql"
+    }
 
     sql_template <- readLines(system.file(sql_template_path, package = "dtamg"))
     query <- whisker::whisker.render(sql_template, data = resource_params)
