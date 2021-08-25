@@ -46,7 +46,7 @@ SELECT DISTINCT a.sqa_credor FROM (
 SELECT
 sqa_credor, 
 CASE 
-    WHEN dede.ano_exercicio >= 2021 AND 
+    WHEN dede.dt_original LIKE '%21' AND 
          dede.unidade_orcamentaria LIKE '4291%' AND -- 4291 - FUNDO ESTADUAL DE SAUDE
          dede.unidade_executora LIKE '1320007%' AND -- 1320007 - C - GABINETE -- NÃO EXISTE TABELA DM_UNIDADE_EXECUTORA, CÓDIGOS APENAS NAS TABELAS DM_EMPENHO_DESP E REST
          dede.nr_empenho IN (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46, 47, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83) and
