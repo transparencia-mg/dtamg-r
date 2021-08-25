@@ -18,7 +18,6 @@ dede.modalidade_aplic,
 dede.tipo_empenho,
 dede.fonte_recurso,
 dede.identificador_orc,
-dede.razao_social_credor razao_social_conferencia,
 CASE WHEN
          a.sqa_credor IS NOT NULL
          then '000.000.000-00 - INFORMACAO COM RESTRICAO DE ACESSO'
@@ -58,8 +57,7 @@ CASE
          REGEXP_LIKE(SUBSTR(dede.razao_social_credor, 1, Instr(dede.razao_social_credor, ' - ', 1, 1) -1), '[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}')
          THEN 'premio-loterico'
          ELSE 'sem-anonimizacao'   
-    END anonimizacao-- ,
--- dede.item_desp, dede.ano_exercicio, dede.unidade_orcamentaria, dede.unidade_executora, dede.nr_empenho, dede.elemento_desp, dede.razao_social_credor
+    END anonimizacao
 from dm_empenho_resto dede
 )a
 WHERE a.anonimizacao <> 'sem-anonimizacao'
