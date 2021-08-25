@@ -96,7 +96,6 @@ with id_favorecido_premios_lotericos as (
      )
 
 select id_favorecido, 
--- nr_cpf,
        case 
             when id_favorecido in (select * from id_favorecido_premios_lotericos) then '0'
             when id_favorecido in (select * from id_favorecido_hanseniase) then '0'
@@ -106,14 +105,7 @@ select id_favorecido,
               substr(lpad(to_char(nr_cpf), 11, '0'), 7, 3) || 
               '-**'
        end as nr_cpf,
-       case 
-            when id_favorecido in (select * from id_favorecido_premios_lotericos) then '0'
-            when id_favorecido in (select * from id_favorecido_hanseniase) then '0'
-            else '***' ||
-              substr(lpad(to_char(nr_cpf), 11, '0'), 4, 3) || 
-              substr(lpad(to_char(nr_cpf), 11, '0'), 7, 3) || 
-              '***'
-       end as masp,
+masp,
        case 
             when id_favorecido in (select id_favorecido from id_favorecido_premios_lotericos) /* and tp_documento = 1  */ then 'INFORMACAO COM RESTRICAO DE ACESSO'
             when id_favorecido in (select id_favorecido from id_favorecido_hanseniase) /* and tp_documento = 1 */ then 'INFORMACAO COM RESTRICAO DE ACESSO'
