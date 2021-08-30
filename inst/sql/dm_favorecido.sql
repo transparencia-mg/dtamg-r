@@ -112,3 +112,4 @@ select id_favorecido, tp_documento,
             else nome
        end as nome
 from dm_favorecido
+WHERE {{field}} = {{value}}
