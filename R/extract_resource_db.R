@@ -44,6 +44,8 @@ parse_sql <- function(datapackage_path, resource_name) {
       sql_template_path <- "sql/dm_empenho_desp_diarias_scdp_liqpag.sql"
     } else if(grepl("dm_empenho_desp_\\d{4}", resource_name)) {
       sql_template_path <- "sql/dm_empenho_desp.sql"
+    } else if(grepl("dm_empenho_resto_\\d{4}", resource_name)) {
+      sql_template_path <- "sql/dm_empenho_resto.sql"
     } else {
       sql_template_path <- "sql/default.sql"
     }
