@@ -63,3 +63,4 @@ from dm_empenho_resto dede
 WHERE a.anonimizacao <> 'sem-anonimizacao'
 )a
 ON dede.sqa_credor = a.sqa_credor
+WHERE dede.{{particao.field}} = {{particao.value}}
