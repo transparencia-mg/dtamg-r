@@ -112,4 +112,3 @@ masp,
             else nome
        end as nome
 from dm_favorecido_scdp
-WHERE {{field}} = {{value}}
