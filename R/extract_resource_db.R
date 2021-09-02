@@ -3,8 +3,8 @@
 #' @description
 #'
 #' @details
-#' 
-#' @param 
+#'
+#' @param
 #'
 #' @examples
 #' \dontrun{
@@ -19,7 +19,7 @@ parse_sql <- function(datapackage_path, resource_name) {
     resource <- datapackage$get_resource(resource_name)
 
 
-    fields <- paste0(resource$schema$field_names, collapse = ",")
+    fields <- paste0(resource$schema$field_names, collapse = ",\n")
     source <- resource$sources[[1]]$table
     has_particao <- (grepl("\\d{4}", resource_name) & !grepl("\\d{4}", resource$sources[[1]]$table))
     field_particao <- ifelse("ano_particao" %in% resource$schema$field_names, "ano_particao", "ano_exercicio")
@@ -65,8 +65,8 @@ parse_sql <- function(datapackage_path, resource_name) {
 #' @description
 #'
 #' @details
-#' 
-#' @param 
+#'
+#' @param
 #'
 #' @examples
 #' @export
