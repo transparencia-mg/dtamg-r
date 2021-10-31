@@ -45,7 +45,7 @@ flatten_resource <- function(datapackage, resource_name, join = NULL) {
   resources_field_names_unique <- purrr::map(names(resources_field_names), ~ rename_dups_field_names(dp$get_resource(.x), resources_field_names, pk_names)) |>
     purrr::set_names(names(resources_field_names))
 
-  resources_path <- purrr::map_chr(names(resources_field_names), ~ fs::path(dp$get_resource(.x)$basepath, dp$get_resource(.x)$path))
+  resources_path <- purrr::map_chr(names(resources_field_names), ~ fs::path(dp$get_resource(.x)$fullpath))
 
   dtl <- purrr::map(resources_path, data.table::fread, sep = ";" , dec = ",", colClasses = "character") |>
     purrr::set_names(names(resources_field_names))
