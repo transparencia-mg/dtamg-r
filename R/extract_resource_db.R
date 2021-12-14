@@ -36,20 +36,10 @@ parse_sql <- function(datapackage_path, resource_name) {
                             source = source,
                             particao = particao)
 
-    if(grepl("dm_favorecido", resource_name)) {
-      sql_template_path <- "sql/dm_favorecido.sql"
-    } else if(grepl("dm_favorecido_scdp", resource_name)) {
-      sql_template_path <- "sql/dm_favorecido_scdp.sql"
-    } else if(grepl("dm_empenho_desp_compras_empenho", resource_name)) {
+    if(grepl("dm_empenho_desp_compras_empenho", resource_name)) {
       sql_template_path <- "sql/dm_empenho_desp_compras_empenho.sql"
     } else if(grepl("dm_empenho_desp_diarias_scdp_liqpag", resource_name)) {
       sql_template_path <- "sql/dm_empenho_desp_diarias_scdp_liqpag.sql"
-    } else if(grepl("dm_empenho_desp_\\d{4}", resource_name)) {
-      sql_template_path <- "sql/dm_empenho_desp.sql"
-    } else if(grepl("dm_empenho_resto_\\d{4}", resource_name)) {
-      sql_template_path <- "sql/dm_empenho_resto.sql"
-    } else if(grepl("dm_contratado", resource_name)) {
-      sql_template_path <- "sql/dm_contratado.sql"
     } else {
       sql_template_path <- "sql/default.sql"
     }
