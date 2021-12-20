@@ -2,7 +2,12 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
-### [Em desenvolvimento]
+### [0.2.1] - 2021-12-20
+#### Added
+- Função `parse_sql.R` para renderização de consultas SQL para extração dos dados de um recurso a partir das informações presentes no table schema associado
+
+#### Fixed
+- Erro na `flatten_resource` durante leitura dos arquivos de dados de recursos referenciados
 
 ### [0.2.0] - 2021-27-07
 #### Added
