@@ -31,18 +31,17 @@ parse_sql <- function(datapackage_path, resource_name) {
     particao <- has_particao
     }
 
+    filtro <- ifelse(resource_name == "dm_empenho_desp_compras_empenho", "fl_compras_empenho",
+                     ifelse(resource_name == "dm_empenho_desp_diarias_scdp_liqpag", "ft_diarias_scdp_liqpag", FALSE))
+
 
     resource_params <- list(fields = fields,
                             source = source,
-                            particao = particao)
+                            particao = particao,
+                            filtro = filtro)
 
-    if(grepl("dm_empenho_desp_compras_empenho", resource_name)) {
-      sql_template_path <- "sql/dm_empenho_desp_compras_empenho.sql"
-    } else if(grepl("dm_empenho_desp_diarias_scdp_liqpag", resource_name)) {
-      sql_template_path <- "sql/dm_empenho_desp_diarias_scdp_liqpag.sql"
-    } else {
-      sql_template_path <- "sql/default.sql"
-    }
+
+    sql_template_path <- "sql/default.sql"
 
     sql_template <- readLines(system.file(sql_template_path, package = "dtamg"))
     query <- whisker::whisker.render(sql_template, data = resource_params)
