@@ -48,26 +48,3 @@ parse_sql <- function(datapackage_path, resource_name) {
 
     query
 }
-
-#' Connect to oracle database
-#'
-#' @description
-#'
-#' @details
-#'
-#' @param
-#'
-#' @examples
-#' @export
-db_connect_oracle <- function(host, port, service_name, user, password) {
-
-  drv <- DBI::dbDriver("Oracle")
-  connect.string <- paste(
-    "(DESCRIPTION=",
-    "(ADDRESS=(PROTOCOL=tcp)(HOST=", host, ")(PORT=", port, "))",
-    "(CONNECT_DATA=(SERVICE_NAME=", service_name, ")))", sep = "")
-
-  con <- DBI::dbConnect(drv, username = user, password = password, dbname = connect.string)
-
-  con
-}
