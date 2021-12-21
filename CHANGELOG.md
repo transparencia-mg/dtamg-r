@@ -2,7 +2,11 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
-### [Em desenvolvimento]
+### [0.2.2] - 2021-12-21
+#### Fixed
+- Erro na `flatten_resource` durante leitura de caminhos absolutos no windows. 
+
+  A função `fs::path_expand`, utilizada para expandir `~`, converte o caminho `C:\\Users/` para `C:/Users` que não é aceito pelo `frictionless-py`.
 
 ### [0.2.1] - 2021-12-20
 #### Added
