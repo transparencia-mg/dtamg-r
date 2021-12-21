@@ -26,7 +26,7 @@
 #' }
 #' @export
 flatten_resource <- function(datapackage, resource_name, join = NULL) {
-  dp <- frictionless$Package(fs::path_expand(datapackage))
+  dp <- frictionless$Package(datapackage)
   resource <- dp$get_resource(resource_name)
 
   if(is.null(join)) {
