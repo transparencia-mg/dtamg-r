@@ -40,9 +40,6 @@ parse_sql <- function(datapackage_path, resource_name) {
                             particao = particao,
                             filtro = filtro)
 
-
-    sql_template_path <- "sql/default.sql"
-
     if(grepl("dm_contratado", resource_name)) {
       sql_template_path <- "sql/dm_contratado.sql"
     } else {

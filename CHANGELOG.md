@@ -2,6 +2,10 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
+### [0.2.4] - 2021-12-23
+#### Fixed
+- Anonimização tabela dm_contratado (erro na abribuição da variável 'sql_template_path')
+
 ### [0.2.3] - 2021-12-23
 #### Added
 - Anonimização tabela dm_contratado
