@@ -1,8 +1,10 @@
-SELECT dc.*,
+SELECT dc.id_contratado,
+	   dc.tp_documento,
 CASE WHEN dc.tp_documento = 1 THEN
     CONCAT('***', SUBSTR(CONCAT(REPEAT('0', 11 - LENGTH(dc.nr_documento)), nr_documento), 4, 6), '**')
     ELSE dc.nr_documento
-    END nr_documento_anonimizado 
+    END nr_documento_anonimizado,
+    dc.nome_anonimizado
 from dm_contratado dc
 
 -- 11 - LENGTH(dc.nr_documento): Utilizado para definir quantos 0 a esquerda estavam faltando para completar os 11 dígitos do CPF
