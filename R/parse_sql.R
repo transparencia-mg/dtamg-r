@@ -43,6 +43,12 @@ parse_sql <- function(datapackage_path, resource_name) {
 
     sql_template_path <- "sql/default.sql"
 
+    if(grepl("dm_contratado", resource_name)) {
+      sql_template_path <- "sql/dm_contratado.sql"
+    } else {
+      sql_template_path <- "sql/default.sql"
+    }
+
     sql_template <- readLines(system.file(sql_template_path, package = "dtamg"))
     query <- whisker::whisker.render(sql_template, data = resource_params)
 
