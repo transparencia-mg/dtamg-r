@@ -2,6 +2,10 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
+### [0.2.3] - 2021-12-23
+#### Added
+- Anonimização tabela dm_contratado
+
 ### [0.2.2] - 2021-12-21
 #### Fixed
 - Erro na `flatten_resource` durante leitura de caminhos absolutos no windows. 
