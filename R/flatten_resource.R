@@ -37,18 +37,15 @@ flatten_resource <- function(datapackage, resource_name, join = NULL) {
 
   pk_names <- purrr::map_chr(resource$schema$foreignKeys, "fields")
 
-  resources_field_names <- c(list(resource$schema$field_names),
-                 purrr::map(fk_resources, ~ dp$get_resource(.x)$schema$field_names)) |>
-              purrr::set_names(c(resource_name, fk_resources))
+  resources_field_names <- purrr::set_names(c(list(resource$schema$field_names),
+                 purrr::map(fk_resources, ~ dp$get_resource(.x)$schema$field_names)), c(resource_name, fk_resources))
 
 
-  resources_field_names_unique <- purrr::map(names(resources_field_names), ~ rename_dups_field_names(dp$get_resource(.x), resources_field_names, pk_names)) |>
-    purrr::set_names(names(resources_field_names))
+  resources_field_names_unique <- purrr::set_names(purrr::map(names(resources_field_names), ~ rename_dups_field_names(dp$get_resource(.x), resources_field_names, pk_names)), names(resources_field_names))
 
   resources_path <- purrr::map_chr(names(resources_field_names), ~ fs::path(dp$get_resource(.x)$fullpath))
 
-  dtl <- purrr::map(resources_path, data.table::fread, sep = ";" , dec = ",", colClasses = "character") |>
-    purrr::set_names(names(resources_field_names))
+  dtl <- purrr::set_names(purrr::map(resources_path, data.table::fread, sep = ";" , dec = ",", colClasses = "character"), names(resources_field_names))
 
   purrr::map2(dtl, resources_field_names_unique, data.table::setnames)
 

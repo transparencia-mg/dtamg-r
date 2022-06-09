@@ -2,6 +2,10 @@
 
 Documentação das principais alterações sofridas por este pacote.
 
+### [0.2.6] - 2022-06-09
+#### Changed
+- Remove utilização do _pipe_ `|>` para permitir instalação do pacote em versões anteriores ao R 4.1+
+
 ### [0.2.5] - 2021-12-23
 #### Added
 - Anonimização tabela dm_contratado
